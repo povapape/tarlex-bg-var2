@@ -10,37 +10,42 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="#home" class="logo">
-                    <img src="logo/Logo- TLC_Logo-1 4.svg" alt="">
-                </a>
-                
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#about">О компании</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-                
-                <div class="nav-actions">
-                    <div class="language-switcher">
-                        <button class="active">🇷🇺 RU</button>
-                        <button>🇧🇬 BG</button>
-                        <button>🇬🇧 EN</button>
-                    </div>
-                    <a href="#contact" class="cta-button">Консультация</a>
-                    
-                    <div class="mobile-toggle" id="mobileToggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+<header class="header" id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="#home" class="logo">
+                <img src="logo/Logo- TLC_Logo-1 4.svg" alt="">
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#about">О компании</a></li>
+                <li><a href="#contact">Контакты</a></li>
+                <!-- Додаємо кнопку консультації в мобільне меню -->
+                <li class="nav-cta-mobile">
+                    <a href="#contact" class="mobile-cta-button">Консультация</a>
+                </li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div class="language-switcher">
+                    <button class="active">🇷🇺 RU</button>
+                    <button>🇧🇬 BG</button>
+                    <button>🇬🇧 EN</button>
                 </div>
-            </nav>
-        </div>
-    </header>
+                <!-- Десктопна версія кнопки -->
+                <a href="#contact" class="cta-button desktop-cta">Консультация</a>
+                
+                <div class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
     <main>
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -599,4 +604,3 @@
     </script>
 </body>
 </html>
-
