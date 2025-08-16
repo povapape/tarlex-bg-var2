@@ -81,13 +81,13 @@
             width: 100%;
             z-index: 1000;
             background: var(--glass);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--glass-border);
             transition: var(--transition);
         }
 
         .header.scrolled {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             box-shadow: var(--shadow-lg);
         }
 
@@ -123,7 +123,7 @@
             font-size: 0.95rem;
             transition: var(--transition);
             position: relative;
-            padding: 0.5rem 0;
+            padding: 0.8rem 1.2rem;
         }
 
         .nav-menu a::after {
@@ -179,8 +179,8 @@
         }
 
         .cta-button {
-            background: var(--primary);
-            color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
@@ -191,7 +191,8 @@
         }
 
         .cta-button:hover {
-            background: var(--primary-dark);
+            background: var(--primary);
+            color: white;
             transform: translateY(-1px);
             box-shadow: var(--shadow-md);
         }
@@ -211,7 +212,116 @@
             transition: var(--transition);
             border-radius: 1px;
         }
+        /* Обновленные стили для мобильного меню */
+.nav-cta-mobile {
+    display: none !important; /* Скрыто на десктопе */
+}
 
+.mobile-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary);
+    color: white !important;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    margin: 1rem auto 0; /* Центрируем кнопку */
+    width: fit-content; /* Изменено с 100% на fit-content для центрирования */
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+}
+
+.mobile-cta-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent
+    );
+    transition: left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1;
+}
+
+.mobile-cta-button:hover::before {
+    left: 100%;
+}
+
+.mobile-cta-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.mobile-cta-button > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Скрываем десктопную CTA на мобильных */
+@media (max-width: 768px) {
+    .desktop-cta {
+        display: none !important;
+    }
+    
+    .nav-cta-mobile {
+        display: flex !important; /* Изменено на flex для центрирования */
+        justify-content: center; /* Центрируем содержимое */
+        text-align: center;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--gray-200);
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: var(--shadow-lg);
+        padding: 2rem 0 3rem;
+        gap: 1.5rem;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    /* Стили для обычных навигационных ссылок в мобильном меню */
+    .nav-menu li:not(.nav-cta-mobile) a {
+        display: block;
+        padding: 1rem 2rem;
+        color: var(--gray-700);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: var(--transition);
+        border-radius: 8px;
+        margin: 0 1rem;
+    }
+    
+    .nav-menu li:not(.nav-cta-mobile) a:hover {
+        background: var(--surface-100);
+        color: var(--primary);
+    }
+}
         .hero {
             margin-top: 80px;
             min-height: 100vh;
@@ -571,7 +681,7 @@
             margin: 0 auto 2rem;
             font-size: 2rem;
             color: white;
-            transition: var(--transition);
+            transition: var(--transition-slow);
         }
 
         .feature-card:hover .feature-icon-wrapper {
@@ -986,6 +1096,15 @@
             .contact-form {
                 padding: 2rem;
             }
+            .nav-menu {
+                padding: 1.5rem 0 2.5rem;
+            }
+    
+        .mobile-cta-button {
+                margin: 1rem;
+                padding: 1rem 1.5rem;
+                font-size: 0.95rem;
+    }
         }
 
         .fade-in {
